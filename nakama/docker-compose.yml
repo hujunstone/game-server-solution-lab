@@ -2,7 +2,7 @@ version: "3"
 
 services:
   cockroachdb:
-    image: cockroachdb/cockroach:v23.1.11
+    image: cockroachdb/cockroach:latest-v24.1
     command: start-single-node --insecure --http-addr=0.0.0.0:8080
     ports:
       - "26257:26257"
@@ -11,7 +11,7 @@ services:
       - cockroach-data:/cockroach/cockroach-data
 
   nakama:
-    image: heroiclabs/nakama:v3.34
+    image: heroiclabs/nakama:v3.34.1
     depends_on:
       - cockroachdb
     entrypoint:
