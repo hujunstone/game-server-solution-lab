@@ -1,7 +1,7 @@
 services:
   cockroachdb:
     image: cockroachdb/cockroach:v25.4.0
-    command: start-single-node --insecure --store=attrs=ssd,path=/var/lib/cockroach/
+    command: start-single-node --insecure --store=attrs=ssd,path=/var/lib/cockroach/ --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080
     restart: "no"
     volumes:
       - data:/var/lib/cockroach
@@ -24,14 +24,7 @@ services:
       - "-ecx"
       - >
           /nakama/nakama migrate up --database.address root@cockroachdb:26257 &&
-          exec /nakama/nakama
-            --name nakama1
-            --database.address root@cockroachdb:26257
-            --logger.level DEBUG
-            --session.token_expiry_sec 7200
-            --metrics.prometheus_port 9100
-            --console.username admin@example.com
-            --console.password mystrongpassword
+          exec /nakama/nakama --name nakama1 --database.address root@cockroachdb:26257 --logger.level DEBUG --session.token_expiry_sec 7200 --metrics.prometheus_port 9100 --console.username admin@example.com --console.password mystrongpassword
     restart: "no"
     links:
       - "cockroachdb:db"

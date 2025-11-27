@@ -38,7 +38,7 @@ sudo systemctl restart docker
 # 查看状态
 docker-compose ps
 docker-compose logs -f
-
+docker-compose logs
 
 
 
