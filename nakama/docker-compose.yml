@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  cockroachdb:
+    image: cockroachdb/cockroach:v23.1.11
+    command: start-single-node --insecure --http-addr=0.0.0.0:8080
+    ports:
+      - "26257:26257"
+      - "8020:8080"
+    volumes:
+      - cockroach-data:/cockroach/cockroach-data
+
+  nakama:
+    image: heroiclabs/nakama:latest
+    depends_on:
+      - cockroachdb
+    entrypoint:
+      - "/bin/sh"
+      - "-ecx"
+      - >
+        /nakama/nakama migrate up --database.address root@cockroachdb:26257 &&
+        /nakama/nakama --database.address root@cockroachdb:26257 --logger.level DEBUG
+    ports:
+      - "7350:7350" # API
+      - "7351:7351" # Console
+    volumes:
+      - ./data/modules:/nakama/data/modules  # 挂载你的 Lua 模块，方便二次开发
+
+volumes:
+  cockroach-data:
