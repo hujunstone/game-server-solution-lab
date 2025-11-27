@@ -35,7 +35,9 @@ docker-compose pull heroiclabs/nakama:v3.34.1
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
-
+# 查看状态
+docker-compose ps
+docker-compose logs -f
 
 
 
