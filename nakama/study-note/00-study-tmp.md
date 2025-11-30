@@ -1,4 +1,14 @@
 
+
+
+如何复用和验证 Nakama 的注册功能
+如何在DB中查看新注册的用户信息
+
+本机直接打包后是否需要docker-compose重启，如何不重启的情况下更新新编译的go文件
+
+使用nakama注册用户，注册成功的一整套流程和测试接口是什么，是否需要验证码
+
+
 # docker 镜像
 https://blog.xuanyuan.me/archives/1154
 
@@ -40,5 +50,7 @@ docker-compose ps
 docker-compose logs -f
 docker-compose logs
 
-
+http://192.168.50.66:8020/#/overview/list
+http://192.168.50.66:7351/#/
+http://192.168.50.66:9090/query
 
