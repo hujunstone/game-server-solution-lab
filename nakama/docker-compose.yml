@@ -19,6 +19,7 @@ services:
 
   nakama:
     image: heroiclabs/nakama:latest
+    # build: .  # 指向用户自定义工程路径包含 Dockerfile 的当前目录
     entrypoint:
       - "/bin/sh"
       - "-ecx"
