@@ -9,7 +9,7 @@
 ### 2. 工程目录规划
 
 ```
-nakama/                          # 游戏服务端工程根目录（与 UE 客户端项目分离）
+dmst-server/                     # 游戏服务端工程根目录（与 UE 客户端项目分离）
 ├── cmd/                         # 可执行程序或插件入口（main 包）
 │   └── nakama-plugin/           # Nakama 插件入口，编译为共享库 (.so/.dll)
 ├── internal/                    # 应用核心代码（不对外暴露的 Go 模块实现）
