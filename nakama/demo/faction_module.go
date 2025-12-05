@@ -17,11 +17,16 @@ type FactionQuery struct {
 
 // 查询结果：返回给客户端的 JSON
 type Faction struct {
-	FactionID   int64  `json:"faction_id"`
-	Code        string `json:"code"`
-	Name        string `json:"name"`
-	BadgeIcon   string `json:"badge_icon,omitempty"`
-	Description string `json:"description,omitempty"`
+	// 势力主键
+	FactionID int32 `db:"faction_id" json:"faction_id"`
+	// 势力编码
+	Code string `db:"code" json:"code"`
+	// 势力名称
+	Name string `db:"name" json:"name"`
+	// 势力徽记资源引用
+	BadgeIcon string `db:"badge_icon" json:"badge_icon"`
+	// 势力说明文本
+	Description string `db:"description" json:"description"`
 }
 
 // Nakama 启动时会调用这个函数来初始化 Go 模块。
