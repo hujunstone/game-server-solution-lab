@@ -1,4 +1,4 @@
-package main
+package demo
 
 import (
 	"context"
@@ -29,8 +29,8 @@ type Faction struct {
 	Description string `db:"description" json:"description"`
 }
 
-// Nakama 启动时会调用这个函数来初始化 Go 模块。
-func InitModule(ctx context.Context, logger runtime.Logger, db *sql.DB, nk runtime.NakamaModule, initializer runtime.Initializer) error {
+// RegisterDemo 由主插件入口调用，用来注册 demo 相关的 RPC。
+func RegisterDemo(logger runtime.Logger, initializer runtime.Initializer) error {
 	// 注册一个自定义 RPC：id = "demo_faction_get"
 	if err := initializer.RegisterRpc("demo_faction_get", rpcGetFaction); err != nil {
 		return err

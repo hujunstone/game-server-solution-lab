@@ -17,4 +17,7 @@ json.Marshal
 
 cockroachdb 建表语句 UNIQUE 修饰的字段是否会建索引，是
 
+# 打包和构建
+在 main.go 引用 demo，并注册
+
 

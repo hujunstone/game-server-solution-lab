@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
+	"nakama/demo"  // 引入 demo 包
 	"nakama/login" // 引入 login 包
 
 	"github.com/heroiclabs/nakama-common/runtime"
@@ -15,6 +16,12 @@ func InitModule(ctx context.Context, logger runtime.Logger, db *sql.DB, nk runti
 	// 注册登录相关的 Hook
 	if err := login.RegisterLoginHooks(initializer); err != nil {
 		logger.Error("注册登录 Hook 失败: %v", err)
+		return err
+	}
+
+	// 注册 demo 相关的 RPC
+	if err := demo.RegisterDemo(logger, initializer); err != nil {
+		logger.Error("注册 demo 模块失败: %v", err)
 		return err
 	}
 
