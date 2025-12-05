@@ -83,8 +83,8 @@ dmst-server/                     # 游戏服务端工程根目录（与 UE 客�
   // 生成名为 build/nakama_plugin.so 的共享库文件，用于 Nakama 加载
   // -buildmode=plugin  指定输出为 Go 插件（.so 文件，供宿主进程动态加载）
   // -o build/nakama_plugin.so  指定输出文件路径和文件名
-  // ./cmd/nakama-plugin   指定插件主程序目录（含 main.go）
-  go build -buildmode=plugin -o build/nakama_plugin.so ./cmd/nakama-plugin
+  // ./cmd/nakama-study-plugin   指定插件主程序目录（含 main.go）
+  go build -buildmode=plugin -o build/nakama_plugin.so ./cmd/nakama-study-plugin
   ```
 - Docker 镜像（引用 repo 已有 `Dockerfile`，若需自定义，建议多阶段构建）：
   ```dockerfile

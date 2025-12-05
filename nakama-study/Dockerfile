@@ -23,5 +23,5 @@ RUN go build --trimpath --mod=readonly --buildmode=plugin -o ./backend.so
 FROM registry.heroiclabs.com/heroiclabs/nakama:3.21.1
 
 # 将编译好的插件复制到 Nakama 的模块目录
-# /nakama/data/modules/ 是容器内的路径，Nakama 会在启动时自动加载该目录下的插件
+# /nakama-study/data/modules/ 是容器内的路径，Nakama 会在启动时自动加载该目录下的插件
 COPY --from=builder /backend/backend.so /nakama/data/modules/

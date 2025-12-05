@@ -18,7 +18,7 @@ services:
       retries: 5
 
   nakama:
-    # image: heroiclabs/nakama:latest
+    # image: heroiclabs/nakama-study:latest
     image: heroiclabs/nakama:3.21.1
     # build: .  # 指向用户自定义工程路径包含 Dockerfile 的当前目录
     entrypoint:
@@ -36,7 +36,7 @@ services:
       prometheus:
         condition: service_started
     volumes:
-      - ./data/modules:/nakama/data/modules
+      - ./data/modules:/nakama-study/data/modules
     expose:
       - "7349"
       - "7350"
@@ -47,7 +47,7 @@ services:
       - "7350:7350"
       - "7351:7351"
     healthcheck:
-      test: ["CMD", "/nakama/nakama", "healthcheck"]
+      test: ["CMD", "/nakama-study/nakama-study", "healthcheck"]
       interval: 10s
       timeout: 5s
       retries: 5
