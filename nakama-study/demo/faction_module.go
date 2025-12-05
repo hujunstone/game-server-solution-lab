@@ -18,7 +18,7 @@ type FactionQuery struct {
 // 查询结果：返回给客户端的 JSON
 type Faction struct {
 	// 势力主键
-	FactionID int32 `db:"faction_id" json:"faction_id"`
+	FactionID int64 `db:"faction_id" json:"faction_id"`
 	// 势力编码
 	Code string `db:"code" json:"code"`
 	// 势力名称
