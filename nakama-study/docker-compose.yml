@@ -36,7 +36,7 @@ services:
       prometheus:
         condition: service_started
     volumes:
-      - ./data/modules:/nakama-study/data/modules
+      - ./data/modules:/nakama/data/modules
     expose:
       - "7349"
       - "7350"
@@ -47,7 +47,7 @@ services:
       - "7350:7350"
       - "7351:7351"
     healthcheck:
-      test: ["CMD", "/nakama-study/nakama-study", "healthcheck"]
+      test: ["CMD", "/nakama/nakama", "healthcheck"]
       interval: 10s
       timeout: 5s
       retries: 5
