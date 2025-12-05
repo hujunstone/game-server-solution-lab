@@ -1,6 +1,6 @@
 module nakama
 
-go 1.25.4
+go 1.21
 
 require github.com/heroiclabs/nakama-common v1.31.0
 
